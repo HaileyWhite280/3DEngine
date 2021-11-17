@@ -22,4 +22,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Build\Resources\Shaders\basic.frag">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\Build\Resources\Shaders\basic.vert">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
