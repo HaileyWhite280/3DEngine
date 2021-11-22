@@ -14,6 +14,11 @@
 //graphics
 #include "Graphics/Renderer.h"
 #include "Graphics/Texture.h"
+#include "Graphics/Program.h"
+//#include "Graphics/Material.h"
+#include "Graphics/Shader.h"
+#include "Graphics/VertexBuffer.h"
+#include "Graphics/VertexIndexBuffer.h"
 
 //framework
 #include "Framework/System.h"
@@ -27,9 +32,6 @@
 //Objects
 #include "Object/Actor.h"
 #include "Object/Scene.h"
-
-//input
-#include "Input/InputSystem.h"
 
 //core
 #include "Core/Utilities.h"

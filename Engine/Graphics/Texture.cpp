@@ -1,7 +1,5 @@
 #include "Texture.h"
 #include <SDL_image.h>
-#include <iostream>
-#include <cassert>
 
 namespace nc
 {
@@ -19,10 +17,9 @@ namespace nc
     {
         target = target;
         unit = unit;
-
         SDL_Surface* surface = IMG_Load(filename.c_str());
         FlipSurface(surface);
-        
+
         if (surface == nullptr)
         {
             SDL_Log("Failed to create surface: %s", SDL_GetError());
@@ -33,7 +30,8 @@ namespace nc
         glBindTexture(target, texture);
 
         GLenum format = (surface->format->BytesPerPixel == 4) ? GL_RGBA : GL_RGB;
-        glTexImage2D(target, 0, format, surface->w, surface->h, 0, format, GL_UNSIGNED_BYTE, surface->pixels);
+
+        glTexImage2D(target, 0, format, surface->w, surface->h, 0, format, GL_UNSIGNED_BYTE, surface -> pixels);
 
         glTexParameteri(target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -48,6 +46,7 @@ namespace nc
         SDL_LockSurface(surface);
 
         int pitch = surface->pitch; // row size
+
         uint8_t* temp = new uint8_t[pitch]; // intermediate buffer
         uint8_t* pixels = (uint8_t*)surface->pixels;
 
@@ -63,7 +62,6 @@ namespace nc
         }
 
         delete[] temp;
-
         SDL_UnlockSurface(surface);
     }
 }

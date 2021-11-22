@@ -73,10 +73,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -92,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -113,7 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -134,7 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -155,7 +159,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(ProjectDir);$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)ThirdParty\SDL2-2.0.14\include;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\glm\glm;$(SolutionDir)ThirdParty\glad\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -182,8 +186,13 @@
     <ClCompile Include="Core\Utilities.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Framework\EventSystem.cpp" />
+    <ClCompile Include="Graphics\Material.cpp" />
+    <ClCompile Include="Graphics\Program.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
+    <ClCompile Include="Graphics\Shader.cpp" />
     <ClCompile Include="Graphics\Texture.cpp" />
+    <ClCompile Include="Graphics\VertexBuffer.cpp" />
+    <ClCompile Include="Graphics\VertexIndexBuffer.cpp" />
     <ClCompile Include="Input\InputSystem.cpp" />
     <ClCompile Include="Math\Random.cpp" />
     <ClCompile Include="Math\Transform.cpp" />
@@ -207,8 +216,13 @@
     <ClInclude Include="Framework\Factory.h" />
     <ClInclude Include="Framework\Singleton.h" />
     <ClInclude Include="Framework\System.h" />
+    <ClInclude Include="Graphics\Material.h" />
+    <ClInclude Include="Graphics\Program.h" />
     <ClInclude Include="Graphics\Renderer.h" />
+    <ClInclude Include="Graphics\Shader.h" />
     <ClInclude Include="Graphics\Texture.h" />
+    <ClInclude Include="Graphics\VertexBuffer.h" />
+    <ClInclude Include="Graphics\VertexIndexBuffer.h" />
     <ClInclude Include="Input\InputSystem.h" />
     <ClInclude Include="Math\MathTypes.h" />
     <ClInclude Include="Math\MathUtils.h" />
