@@ -17,7 +17,7 @@ namespace nc
 
 		virtual void Draw(GLenum primitiveType = GL_TRIANGLES);
 
-		void Bind() { /*glBindVertexArray vao ???*/ }
+		void Bind() { /*glBindVertexArray vao ???*/ glBindVertexArray(vao); }
 
 	protected:
 		GLuint vao = 0; // vertex array object

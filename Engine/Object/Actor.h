@@ -9,6 +9,7 @@
 namespace nc
 {
 	class Scene;
+	class Texture;
 	class Renderer;
 
 	class Actor : public Object, public Serializable

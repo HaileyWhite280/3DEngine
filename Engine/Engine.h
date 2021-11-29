@@ -45,6 +45,8 @@
 #include "Component/GraphicsComponent.h"
 #include "Component/PhysicsComponent.h"
 #include "Component/AudioComponent.h"
+#include "Component/CameraComponent.h"
+#include "Component/MeshComponent.h"
 
 //InputSystem
 #include "Input/InputSystem.h"

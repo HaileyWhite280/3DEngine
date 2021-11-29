@@ -15,9 +15,12 @@ namespace nc
 		REGISTER_CLASS(Actor);
 		REGISTER_CLASS(PhysicsComponent);
 		REGISTER_CLASS(AudioComponent);
-		ObjectFactory::Instance().Register<nc::Actor>("Actor");
-		ObjectFactory::Instance().Register<nc::PhysicsComponent>("PhysicsComponent");
-		ObjectFactory::Instance().Register<nc::AudioComponent>("AudioComponent");
+		REGISTER_CLASS(CameraComponent);
+		REGISTER_CLASS(MeshComponent);
+
+		//ObjectFactory::Instance().Register<nc::Actor>("Actor");
+		//ObjectFactory::Instance().Register<nc::PhysicsComponent>("PhysicsComponent");
+		//ObjectFactory::Instance().Register<nc::AudioComponent>("AudioComponent");
 	}
 
 	void Engine::Shutdown()

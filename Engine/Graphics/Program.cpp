@@ -42,13 +42,13 @@ namespace nc
 		if (status == GL_FALSE)
 		{
 			GLint length = 0;
-
-			glGetShaderiv(program, GL_INFO_LOG_LENGTH, &length);
+			glGetProgramiv(program, GL_INFO_LOG_LENGTH, &length);
 
 			if (length > 0)
 			{
 				std::string infoLog(length, ' ');
 				glGetProgramInfoLog(program, length, &length, &infoLog[0]);
+
 				SDL_Log("Error: Failed to link program.");
 				SDL_Log("Program Info: %s", infoLog.c_str());
 			}
