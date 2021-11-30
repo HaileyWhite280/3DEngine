@@ -18,7 +18,6 @@
 //#include "Graphics/Material.h"
 #include "Graphics/Shader.h"
 #include "Graphics/VertexBuffer.h"
-#include "Graphics/VertexIndexBuffer.h"
 
 //framework
 #include "Framework/System.h"
@@ -47,6 +46,8 @@
 #include "Component/AudioComponent.h"
 #include "Component/CameraComponent.h"
 #include "Component/MeshComponent.h"
+#include "Component/FreeCameraController.h"
+#include "Component/LightComponent.h"
 
 //InputSystem
 #include "Input/InputSystem.h"

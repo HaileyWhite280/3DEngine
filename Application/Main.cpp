@@ -69,7 +69,7 @@ int main(int argc, char** argv)
 	program->Use();
 
 	//vertex buffers
-	std::shared_ptr<nc::VertexIndexBuffer> vertexBuffer = engine->Get<nc::ResourceSystem>()->Get<nc::VertexIndexBuffer>("cube_mesh");
+	std::shared_ptr<nc::VertexBuffer> vertexBuffer = engine->Get<nc::ResourceSystem>()->Get<nc::VertexBuffer>("cube_mesh");
 	vertexBuffer->CreateVertexBuffer(sizeof(vertices), 8, (void*)vertices);
 	vertexBuffer->CreateIndexBuffer(GL_UNSIGNED_INT, 36, (void*)indices);
 	vertexBuffer->SetAttribute(0, 3, 8 * sizeof(float), 0);
@@ -84,8 +84,8 @@ int main(int argc, char** argv)
 		texture = engine->Get<nc::ResourceSystem>()->Get<nc::Texture>("Textures/wood.png");
 		texture->Bind();
 
-		texture = engine->Get<nc::ResourceSystem>()->Get<nc::Texture>("Textures/rocks.bmp");
-		texture->Bind();
+		//texture = engine->Get<nc::ResourceSystem>()->Get<nc::Texture>("Textures/rocks.bmp");
+		//texture->Bind();
 	}
 
 	// create camera
@@ -101,6 +101,15 @@ int main(int argc, char** argv)
 		scene->AddActor(std::move(actor));
 	}
 
+	{
+		auto actor = nc::ObjectFactory::Instance().Create<nc::Actor>("Actor");
+
+		auto component = nc::ObjectFactory::Instance().Create<nc::FreeCameraController>("FreeCameraController");
+		component->speed = 3;
+		component->sensitivity = 0.1f;
+		actor->AddComponent(std::move(component));
+	}
+
 	// create cube
 	{
 		auto actor = nc::ObjectFactory::Instance().Create<nc::Actor>("Actor");
@@ -109,7 +118,7 @@ int main(int argc, char** argv)
 
 		auto component = nc::ObjectFactory::Instance().Create<nc::MeshComponent>("MeshComponent");
 		component->program = engine->Get<nc::ResourceSystem>()->Get<nc::Program>("basic_shader");
-		component->vertexBuffer = engine->Get<nc::ResourceSystem>()->Get<nc::VertexIndexBuffer>("cube_mesh");
+		component->vertexBuffer = engine->Get<nc::ResourceSystem>()->Get<nc::VertexBuffer>("cube_mesh");
 
 		actor->AddComponent(std::move(component));
 		scene->AddActor(std::move(actor));
@@ -134,23 +143,15 @@ int main(int argc, char** argv)
 				quit = true;
 			}
 		}
+
 		SDL_PumpEvents();
 		engine->Update();
 		scene->Update(engine->time.deltaTime);
 
-		// update actor
-		glm::vec3 direction{ 0 };
-		if (engine->Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_A) == nc::InputSystem::eKeyState::Held) direction.x = -1;
-		if (engine->Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_D) == nc::InputSystem::eKeyState::Held) direction.x = 1;
-		if (engine->Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_W) == nc::InputSystem::eKeyState::Held) direction.y = 1;
-		if (engine->Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_S) == nc::InputSystem::eKeyState::Held) direction.y = -1;
-		if (engine->Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_E) == nc::InputSystem::eKeyState::Held) direction.z = -1;
-		if (engine->Get<nc::InputSystem>()->GetKeyState(SDL_SCANCODE_Q) == nc::InputSystem::eKeyState::Held) direction.z = 1;
-
 		auto actor = scene->FindActor("cube");
 		if (actor != nullptr)
 		{
-			actor->transform.position += direction * 5.0f * engine->time.deltaTime;
+			//actor->transform.position += direction * 5.0f * engine->time.deltaTime;
 			actor->transform.rotation.y += engine->time.deltaTime;
 		}
 
