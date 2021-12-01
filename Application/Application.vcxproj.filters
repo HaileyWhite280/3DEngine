@@ -30,4 +30,12 @@
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Build\Resources\Shaders\light.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Resources\Shaders\light.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

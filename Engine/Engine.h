@@ -48,6 +48,7 @@
 #include "Component/MeshComponent.h"
 #include "Component/FreeCameraController.h"
 #include "Component/LightComponent.h"
+#include "Component/ModelComponent.h"
 
 //InputSystem
 #include "Input/InputSystem.h"

@@ -1,7 +1,6 @@
 #pragma once
 #include "Component.h"
 
-
 namespace nc
 {
 	class CameraComponent : public Component

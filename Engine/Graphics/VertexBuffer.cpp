@@ -17,7 +17,7 @@ namespace nc
 
 	bool VertexBuffer::Load(const std::string& name, void* null)
 	{
-		return false;
+		return true;
 	}
 
 	void VertexBuffer::CreateVertexBuffer(GLsizei size, GLsizei vertexCount, void* data)

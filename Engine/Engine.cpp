@@ -18,6 +18,7 @@ namespace nc
 		REGISTER_CLASS(CameraComponent);
 		REGISTER_CLASS(MeshComponent);
 		REGISTER_CLASS(FreeCameraController);
+		REGISTER_CLASS(ModelComponent);
 	}
 
 	void Engine::Shutdown()
