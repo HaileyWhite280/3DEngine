@@ -15,7 +15,7 @@ namespace nc
 		}
 
 		// get all shaders in the resource system
-		auto shaders = owner->scene->engine->Get<nc::ResourceSystem>()->Get<Program>(); //???
+		auto shaders = owner->scene->engine->Get<nc::ResourceSystem>()->Get<Program>();
 
 		// set shaders light properties
 		for (auto& shader : shaders)

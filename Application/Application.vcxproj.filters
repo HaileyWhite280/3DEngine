@@ -64,5 +64,17 @@
     <None Include="..\Build\Resources\Materials\wood.mtl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\Build\Resources\Shaders\phong_normal.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Resources\Shaders\phong_normal.shdr">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Resources\Shaders\phong_normal.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Resources\Materials\bricks.mtl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -29,8 +29,8 @@ struct Light
     uniform Material material;
     uniform Light light;
 
-    uniform vec3 tint;
-    uniform sampler2D tSampler;
+    layout (binding = 0) uniform sampler2D color_sampler;
+    layout (binding = 1) uniform sampler2D normal_sampler;
 
     void main()
     {
@@ -58,5 +58,5 @@ struct Light
         specular = material.specular * light.specular * intensity;
     }
 
-      outColor = vec4(ambient + diffuse, 1) * texture(tSampler, fs_in.texcoord) + vec4(specular, 1);
+      outColor = vec4(ambient + diffuse, 1) * texture(color_sampler, fs_in.texcoord) + vec4(specular, 1);
     }

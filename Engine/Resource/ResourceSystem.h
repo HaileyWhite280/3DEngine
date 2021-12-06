@@ -58,9 +58,9 @@ namespace nc
 
 		for (auto& element : resources)
 		{
-			// get the value of the map (first = key, second = value)
-			element.first; //key???
-			element.second; //value???
+			//// get the value of the map (first = key, second = value)
+			//element.first = element.first; //key???
+			//element.second = element.second; //value???
 
 			// the value is a shared_ptr, get() the raw pointer and try to cast to type T*
 			if (dynamic_cast<T*>(element.second.get()))

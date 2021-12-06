@@ -16,6 +16,9 @@ int main(int argc, char** argv)
 	engine->Startup();
 	engine->Get<nc::Renderer>()->Create("OpenGL", 800, 600);
 
+	nc::SeedRandom(static_cast<unsigned int>(time(nullptr)));
+	nc::SetFilePath("../resources");
+
 	// create scene
 	std::unique_ptr<nc::Scene> scene = std::make_unique<nc::Scene>();
 	scene->engine = engine.get();
@@ -25,8 +28,6 @@ int main(int argc, char** argv)
 	bool success = nc::json::Load("scenes/main.scn", document);
 	scene->Read(document);
 
-	nc::SeedRandom(static_cast<unsigned int>(time(nullptr)));
-	nc::SetFilePath("../resources");
 
 	// create camera
 	{
@@ -70,7 +71,7 @@ int main(int argc, char** argv)
 		actor->name = "light";
 		actor->transform.position = glm::vec3{ 4 };
 
-		auto component = CREATE_ENGINE_OBJECT(LightComponent); //LightComponent being read as empty
+		auto component = CREATE_ENGINE_OBJECT(LightComponent);
 		component->ambient = glm::vec3{ 0.2f };
 		component->diffuse = glm::vec3{ 1 };
 		component->specular = glm::vec3{ 1 };
@@ -104,11 +105,19 @@ int main(int argc, char** argv)
 		engine->Update();
 		scene->Update(engine->time.deltaTime);
 
+		//// update actor
+		//auto actor = scene->FindActor("model");
+		//if (actor != nullptr)
+		//{
+		//	actor->transform.rotation.y += engine->time.deltaTime;
+		//}
+
 		// update actor
-		auto actor = scene->FindActor("model");
+		auto actor = scene->FindActor("light");
 		if (actor != nullptr)
 		{
-			actor->transform.rotation.y += engine->time.deltaTime;
+			glm::mat3 rotation = glm::rotate(engine->time.deltaTime, glm::vec3{ 0, 0, 1 });
+			actor->transform.position = actor->transform.position * rotation;
 		}
 
 		engine->Get<nc::Renderer>()->BeginFrame();
