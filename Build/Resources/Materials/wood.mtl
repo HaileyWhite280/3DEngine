@@ -9,12 +9,13 @@
         1,
         1
     ],
-    "specular":[
-        1,
-        1,
-        1
-    ],
-    "shader_name":"shaders/light.shdr",
+  "specular": [
+    1,
+    1,
+    1
+  ],
+  "shininess":  64,
+    "shader_name":"shaders/gouraud.shdr",
     "texture_names":[
         "textures/wood.png"
     ]

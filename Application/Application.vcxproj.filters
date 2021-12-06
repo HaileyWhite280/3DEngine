@@ -32,6 +32,9 @@
     <Text Include="..\Build\Resources\Shaders\gouraud.shdr">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="..\Build\Resources\Scenes\main.scn">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Build\Resources\Shaders\gouraud.vert">

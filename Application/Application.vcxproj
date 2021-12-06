@@ -164,6 +164,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\Build\Resources\Scenes\main.scn" />
     <Text Include="..\Build\Resources\Shaders\basic.frag" />
     <Text Include="..\Build\Resources\Shaders\basic.vert" />
     <Text Include="..\Build\Resources\Shaders\gouraud.shdr" />

@@ -34,6 +34,9 @@ namespace nc
 	}
 	bool FreeCameraController::Read(const rapidjson::Value& value)
 	{
+		JSON_READ(value, speed);
+		JSON_READ(value, sensitivity);
+
 		return false;
 	}
 }

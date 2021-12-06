@@ -20,6 +20,11 @@ int main(int argc, char** argv)
 	std::unique_ptr<nc::Scene> scene = std::make_unique<nc::Scene>();
 	scene->engine = engine.get();
 
+	// load scene
+	rapidjson::Document document;
+	bool success = nc::json::Load("scenes/main.scn", document);
+	scene->Read(document);
+
 	nc::SeedRandom(static_cast<unsigned int>(time(nullptr)));
 	nc::SetFilePath("../resources");
 
@@ -65,7 +70,7 @@ int main(int argc, char** argv)
 		actor->name = "light";
 		actor->transform.position = glm::vec3{ 4 };
 
-		auto component = CREATE_ENGINE_OBJECT(LightComponent);
+		auto component = CREATE_ENGINE_OBJECT(LightComponent); //LightComponent being read as empty
 		component->ambient = glm::vec3{ 0.2f };
 		component->diffuse = glm::vec3{ 1 };
 		component->specular = glm::vec3{ 1 };
