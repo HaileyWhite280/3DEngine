@@ -78,7 +78,7 @@ namespace nc
 		FrameTimer time;
 
 	private:
-		std::vector<std::unique_ptr<System>> systems;
+		std::vector<std::unique_ptr<System>> systems; //issue here?
 	};
 	
 	template<typename T>

@@ -76,5 +76,14 @@
     <None Include="..\Build\Resources\Materials\bricks.mtl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\Build\Resources\Shaders\effects.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Resources\Shaders\effects.shdr">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Resources\Shaders\effects.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
